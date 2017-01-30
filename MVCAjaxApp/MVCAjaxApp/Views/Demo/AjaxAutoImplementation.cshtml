@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>AjaxAutoImplementation</title>
+</head>
+<body>
+    <h3>Enter Product Name</h3>
+    <input type="text" id="txtProductName" onkeyup="LoadProducts()" />
+    <br />
+    <img id="img1" height="50" width="50" src="~/Images/circle.gif" />
+
+    <h3>Products Info</h3>
+
+    <table id="tblProducts" border="1" style="font-size:x-large">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>More</th>
+        </tr>
+    </table>
+
+    <script>
+        $(function () {
+            $("#img1").hide();
+        });
+
+
+        //Write Keyup Event Function
+
+        function LoadProducts()
+        {
+            $.ajax({
+                url: "/Demo/GetProductsList",
+                type: "post",
+                cache: false,
+                data: { "s": $("#txtProductName").val() },
+                beforeSend: function () {
+                    $("#img1").show();
+                },
+                success: getProductsResult,
+                error: function () {
+                    window.alert("Server Error");
+                },
+                complete: function () {
+                    $("#img1").hide();
+                }
+
+            });
+        }
+
+        function getProductsResult(r)
+        {//Parameter r recieves prods info starting with char[s] typed with in textbox. this information comes from controller action GetProductsList
+
+            $("#tblProduts tr:gt(0)").remove(); //Removing table rows whose index is greater than 0. index 0 will have the col headings
+
+            $.each(r, function (i, p) {
+                $("#tblProducts").append("<TR><TD>" + p.PRODID +"</TD><TD>" + p.PRODNAME + "</TD><TD><A HREF=/Demo/GetProduct/" + p.PRODID + " target=_blank>more</A></TD></TR>")
+                });
+        }
+
+    </script>
+</body>
+</html>

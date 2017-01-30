@@ -1,0 +1,58 @@
+﻿@model MVCAjaxApp.Models.PRODUCT
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetProduct</title>
+</head>
+<body>
+    <div>
+        <h4>PRODUCT</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PRODID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PRODID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PRODNAME)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PRODNAME)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PRODPRICE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PRODPRICE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CATEID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CATEID)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

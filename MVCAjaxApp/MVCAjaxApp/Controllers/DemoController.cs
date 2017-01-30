@@ -33,6 +33,29 @@ namespace MVCAjaxApp.Controllers
             return View();
         }
 
+
+        public ActionResult AjaxAutoImplementation()
+        {
+            return View();
+        }
+
+        public JsonResult GetProductsList(string s)
+        {//Param will recieve characters typed in the text box
+            var res = from p in obj.PRODUCTs
+                      where p.PRODNAME.StartsWith(s)
+                      select new { p.PRODID, p.PRODNAME };
+
+            return Json(res.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetProduct(string id)
+        {//Param id will recieve the id from more link
+
+            var p = obj.PRODUCTs.Find(id);
+
+            return View(p);
+        }
+
         public JsonResult GetProducts(string cid)
         {
 
