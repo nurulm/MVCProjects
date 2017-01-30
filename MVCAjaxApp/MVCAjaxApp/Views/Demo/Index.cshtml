@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body onload="f1()">
+    <span id="s1" style="background-color:bisque; font-size:x-large">
+        Loading News Info...
+    </span>
+    <br />
+    <br />
+
+    <div style="background-color:lightblue; font-size:x-large; width:30%">
+        user name: <input type="text" />
+
+        <br />
+
+        password: <input type="password" />
+
+       </div>
+
+    <script>
+        function f1()
+        {
+            $.ajax({
+                url: "/demo/getNews",
+                type: "get",
+                cache: false,
+                success: function (res) {
+                    $("#s1").html(res);
+                }
+            });
+
+            window.setTimeout("f1()", 2000);
+        }
+    </script>
+</body>
+</html>

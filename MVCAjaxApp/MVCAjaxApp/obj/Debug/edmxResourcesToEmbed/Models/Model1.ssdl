@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CateID" />
+    </Key>
+    <Property Name="CateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODID" />
+    </Key>
+    <Property Name="PRODID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRODNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRODPRICE" Type="int" />
+    <Property Name="CATEID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__PRODUCT__CATEID__5EBF139D">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CateID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="CATEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PRODUCT__CATEID__5EBF139D" Association="Self.FK__PRODUCT__CATEID__5EBF139D">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

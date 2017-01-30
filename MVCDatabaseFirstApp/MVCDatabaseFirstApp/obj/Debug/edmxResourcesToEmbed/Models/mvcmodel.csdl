@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CateID" />
+    </Key>
+    <Property Name="CateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__CATEID__5EBF139D" FromRole="Category" ToRole="PRODUCT" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODID" />
+    </Key>
+    <Property Name="PRODID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PRODNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRODPRICE" Type="Int32" />
+    <Property Name="CATEID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__PRODUCT__CATEID__5EBF139D" FromRole="PRODUCT" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK__PRODUCT__CATEID__5EBF139D">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CateID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="CATEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+    <AssociationSet Name="FK__PRODUCT__CATEID__5EBF139D" Association="Self.FK__PRODUCT__CATEID__5EBF139D">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <FunctionImport Name="ADDPRODUCT">
+      <Parameter Name="PRODID" Mode="In" Type="String" />
+      <Parameter Name="PRODNAME" Mode="In" Type="String" />
+      <Parameter Name="PRODPRICE" Mode="In" Type="Int32" />
+      <Parameter Name="CATEID" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

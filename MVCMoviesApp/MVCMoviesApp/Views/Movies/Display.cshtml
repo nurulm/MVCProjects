@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MVCMoviesApp.Models.MovieModel>
+@{
+    Layout = "~/Views/Shared/_MoviesLayout.cshtml";
+}
+
+
+   <table style="background-color:lightblue; border:3px solid red; padding:4px; margin:5px">
+       <tr>
+           <td>
+               <table border="1" style="background-color:lightgreen; font-size:x-large; border:2px groove back; padding:3px; margin:4px;">
+                   <tr>
+                       <th>Movie ID</th>
+                       <th>Movie Name</th>
+                       <th>Actions</th>
+                   </tr>
+
+                   @foreach (var m in Model)
+                   {
+                       <tr>
+                           <td>@m.MovieID</td>
+                           <td>@m.MovieName</td>
+                           <td><a href="~/Movies/@m.MovieFile" target="f1">Play</a></td>
+                           <td><a href="~/Movies/Delete/@m.MovieID">Delete</a></td>
+                       </tr>
+                   }
+               </table>
+           </td>
+           <td>
+               <iframe name="f1" height="400" width="400"></iframe>
+           </td>
+       </tr>
+   </table>

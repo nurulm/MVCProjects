@@ -1,0 +1,33 @@
+﻿@model MVCCodeFirstApp.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Emp</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            Employee Id: @Html.DisplayFor(e=>e.EmpID) <br />
+            @Html.HiddenFor(e=>e.EmpID)
+
+            Employee Name : @Html.TextBoxFor(e=>e.EmpName) <br />
+
+            Salary : @Html.TextBoxFor(e=>e.Salary) <br />
+
+            Department: @Html.DropDownListFor(e=>e.DeptNo, ViewBag.DeptList as IEnumerable<SelectListItem>, "--Select Dept--") <br />
+
+            <input type="submit" value="save" />
+
+        </fieldset>
+    }
+</body>
+</html>

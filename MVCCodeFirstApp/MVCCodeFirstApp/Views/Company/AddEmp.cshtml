@@ -1,0 +1,27 @@
+﻿@model MVCCodeFirstApp.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Emp</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            Employee ID: @Html.TextBoxFor(e=>e.EmpID) <br />
+            Employee Name : @Html.TextBoxFor(e=>e.EmpName) <br />
+            Salary: @Html.TextBoxFor(e=>e.Salary) <br />
+            Department No: @Html.DropDownListFor(e => e.DeptNo, ViewBag.DeptList as IEnumerable<SelectListItem>, "--Select Dept--"); <br />
+            <input type="submit" value="Add" />
+        </fieldset>
+    }
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/@Session["css"].ToString()" />
+     <title>Index</title>
+</head>
+<body>
+    <div> 
+        <form id="f1" name="f1" method="post" action="~/Home/Store">
+ 
+            <select id="ddlTheme" name="ddlTheme" onchange="ChangeCSS()">
+                <option value="">Select Theme</option>
+                <option value="Standard.css">Standard</option>
+                <option value="classic.css">Classic</option>
+            </select>
+        </form>
+        <br />
+        <a href="~/home/Login">Login</a>
+        <a href="~/home/Register">Register</a>
+    </div>
+    <script>
+        function ChangeCSS()
+        {
+            document.getElementById("f1").submit();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿@model MVCJQueryUI.Models.CustomerModel
+@Scripts.Render("~/bundles/jquery")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ValidationsDemo</title>
+</head>
+<body>
+    @using (Html.BeginForm("Store", "Demo", FormMethod.Post))
+    {
+    <div style="background-color:bisque; font-size:x-large; width:50%">
+        Customer Name : @Html.TextBoxFor(j => j.CustomerName)
+        <span id="spnCustID" style="color:red"></span> <br />
+        Mobile Number : @Html.TextBoxFor(j => j.MobileNumber)
+        <span id="spnMobile" style="color:red"></span> <br />
+        <input type="submit" value="submit" onclick="return Validate()" />
+    </div>
+    }
+    <script>
+        $(function () {
+            $("#CustomerName").blur(f1);
+            $("#MobileNumber").blur(f2);
+
+            $("#MobileNumber").keydown(f3);
+
+        function f1()
+        {
+            if ($("#CustomerName").val()=="")
+            {
+                $("#spnCustID").html("Please Enter Name");
+            }
+            else
+            {
+                $("#spnCustID").empty();
+            }
+        }
+
+        function f2()
+        {
+            if ($("#MobileNumber").val().length != 10)
+                $("#spnMobile").html("Invalid Mobile Number");
+            else
+                $("#spnMobile").html("");
+        }
+
+        function f3(evt)
+        {
+            var code = evt.keyCode;
+
+            if ((code >= 48 && code <= 57)) {
+            }
+            else {
+                evt.preventDefault();
+            }
+        }
+
+        function Validate()
+        {
+            if ($("#spnCustID").html() == "" && $("#spnMobile").html() == "")
+                return true;
+            else
+                return false;
+        }
+    </script>
+</body>
+</html>

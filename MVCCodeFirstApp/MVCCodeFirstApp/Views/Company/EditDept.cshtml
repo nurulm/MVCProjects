@@ -1,0 +1,29 @@
+﻿@model MVCCodeFirstApp.Models.Department
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>EditDept</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Edit Department</legend>
+            Department Id : @Html.DisplayFor(d=>d.DeptID) <br />
+            @Html.HiddenFor(d=>d.DeptID)
+
+            Department Name: @Html.TextBoxFor(d=>d.DeptName) <br />
+
+            <input type="submit" value="Save" />
+        </fieldset>
+    }
+</body>
+</html>

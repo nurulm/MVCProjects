@@ -1,0 +1,56 @@
+﻿@using MVCHTMLHelperApp.Models
+
+@model IEnumerable<MVCHTMLHelperApp.Models.CustomerModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("ShowCustomers", "Home", FormMethod.Post))
+    {
+        <fieldset style="background-color:lightblue; font-size:x-large; width:50%">
+            <legend>Customer Reservation</legend>
+            Customer Name : @Html.TextBox("txtCustomerName") <br />
+
+            Room Type : @Html.RadioButton("r1","Ordinary") Ordinary 
+                        @Html.RadioButton("r1","Deluxe") Deluxe <br />
+
+            Amenities : @Html.CheckBox("c1") Wifi
+                        @Html.CheckBox("c2") Boarding <br />
+
+            Gender: @Html.DropDownList("Gender", EnumHelper.GetSelectList(typeof(Gender)), "Select Gender") <br />
+
+            <input type="submit" value="Register" />
+
+        </fieldset>
+    }
+    @if (Model != null)
+    {
+        <table style="background-color:aliceblue" border="1">
+            <tr>
+                <th>Customer Name</th>
+                <th>Room Type</th>
+                <th>Aminities</th>
+                <th>Gender</th>
+            </tr>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.CustomerName</td>
+                    <td>@obj.RoomType </td>
+                    <td>@Html.Raw(obj.Eminities)</td>
+                    <td>@Html.Raw(obj.CustomerGender)</td>
+                </tr>
+            }
+        </table>
+    }
+</body>
+</html>

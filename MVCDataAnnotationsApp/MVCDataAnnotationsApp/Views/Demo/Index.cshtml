@@ -1,0 +1,141 @@
+﻿@model MVCDataAnnotationsApp.Models.UserModel
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Post", "Demo", FormMethod.Post))
+    {
+        <div class="container" style="background-color:gray;">
+            @*1st Row for User Name*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.UserName)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.UserName)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.UserName)
+                </div>
+            </div> 
+
+            @*2nd Row for Password*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.Password)
+                </div>
+                <div class="col-lg-4">
+                    @Html.PasswordFor(u => u.Password)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div>
+            </div> 
+
+            @*3rd Row for Confirm Password*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.ConfirmPassword)
+                </div>
+                <div class="col-lg-4">
+                    @Html.PasswordFor(u => u.ConfirmPassword)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.ConfirmPassword)
+                </div>
+            </div>
+        
+            @*4th Row for Address*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.Address)
+                </div>
+                <div class="col-lg-4">
+                    @Html.EditorFor(u => u.Address)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.Address)
+                </div>
+            </div>
+
+            @*5th Row for Age*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.Age)
+                </div>
+                <div class="col-lg-4">
+                    @Html.EditorFor(u => u.Age)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.Age)
+                </div>
+            </div>
+
+            @*6th Row for Email ID*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.EmailID)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.EmailID)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.EmailID)
+                </div>
+            </div>
+
+            @*7th Row for Mobile Number*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.Mobile)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.Mobile)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.Mobile)
+                </div>
+            </div>
+         
+
+            @*8th Row for Even Number*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(u => u.EvenNumber)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.EvenNumber)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(u => u.EvenNumber)
+                </div>
+            </div>
+
+            @*Row For Button*@
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="submit" value="Register" />
+                </div>
+            </div>
+
+            @*Row For Validation Summary*@
+            <div class="row">
+                <div class="col-lg-12">
+                    @Html.ValidationSummary(false)
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

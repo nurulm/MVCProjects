@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table border="1" style="background-color:lightblue; width:100%" >
+        <tr>
+            <td colspan="2">
+                <h2>XYZ Company</h2>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:30%">
+                <h3>
+                    <a href="#" onclick="AddCategory()">Add Category</a><br />
+                    <a href="#" onclick="DisplayCategory()">Display Category</a><br />
+                    <a href="#" onclick="AddProduct()">Add Product</a><br />
+                    <a href="#" onclick="DisplayProduct()">Display Product</a>
+                </h3>
+            </td>
+            <td>
+                <div style="font-size:large" id="div1"></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+
+        function AddProduct()
+        {
+            $("#div1").html("<img src='/images/circle.gif' width='30' height='30'>");
+            $("#div1").load("/Inventory/AddProduct");
+        }
+
+        function DisplayProduct()
+        {
+            $("#div1").load("/Inventory/DisplayProduct").html("<img src='/images/circle.gif' width='30' height='30'>")
+        }
+
+        function EditProduct(id)
+        {
+            $("#div1").html("<img src='/images/circle.gif' width='30' height='30'>");
+            $("#div1").load("/Inventory/EditProduct/" + id);
+        }
+        function AddCategory()
+        {
+            $("#div1").html("<img src='/images/circle.gif' width='30' height='30'>");
+            $("#div1").load("/Inventory/AddCategory");
+        }
+
+        function DisplayCategory() {
+            $("#div1").html("<img src='/images/circle.gif' width='30' height='30'>");
+            $("#div1").load("/Inventory/DisplayCategory");
+        }
+
+        function EditCategory(id) {
+            $("#div1").html("<img src='/images/circle.gif' width='30' height='30'>");
+            $("#div1").load("/Inventory/EditCategory/" + id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            int a = 100;
+            int b = 200;
+        }
+
+        <h2> Sum:  @(a + b)</h2>
+
+        @for (byte i = 1; i <= 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                <h3 style="color:green"> even: @i</h3>
+                }
+                else
+                {
+                <h3 style="color:red">odd: @i</h3>
+                }
+            }
+            
+    </div>
+</body>
+</html>

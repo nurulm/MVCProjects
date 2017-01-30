@@ -1,0 +1,33 @@
+﻿@model MVCTypedHTMLControls.Models.JobModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Job Details</title>
+</head>
+<body>
+    <div> 
+        <h2>
+            Name : @Model.UserName <br />
+            Password : @Model.Password <br />
+            Gender : @Model.Gender <br />
+            Countries : @Model.Country <br />
+            @{ 
+                string s = "";
+
+                for (byte i =0; i<Model.SkillSet.Length; i++)
+                {
+                    s += Model.SkillSet[i] + "</br>";
+                }
+            }
+            SkillSet : <br /> @Html.Raw(s)
+        </h2>
+    </div>
+</body>
+</html>

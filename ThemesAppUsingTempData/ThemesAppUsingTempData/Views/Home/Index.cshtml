@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Themes/@TempData.Peek("css")" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Index Page</h2>
+    <form id="frmTheme" method="post" action="~/Home/FormSubmit">
+        <select name="ddlTheme"  onchange="LoadTheme()" >
+            <option value="">Select Theme</option>
+            <option value="Standard.css">Standard</option>
+            <option value="Classic.css">Classic</option>
+        </select>
+    </form>
+    <a href="~/Home/Registration">Registration</a> &nbsp; &nbsp;
+    <a href="~/Home/HomePage">Home Page</a>
+    <script>
+        function LoadTheme()
+        {
+            document.getElementById("frmTheme").submit();
+        }
+
+    </script>
+</body>
+</html>

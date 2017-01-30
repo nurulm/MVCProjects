@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCDatabaseFirstApp.Models.Category>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AccordianView</title>
+</head>
+<body>
+    <div id="div1"> 
+        @foreach(var c in Model)
+        {
+            <h2>@c.CateName</h2>
+        
+
+        @*Content*@
+        <div>
+            <table border="1" style="font-size:x-large">
+                <tr>
+                    <th>PID</th>
+                    <th>Name</th>
+                    <th>Proce</th>
+                </tr>
+                
+                @foreach(var p in c.PRODUCTs)
+                {
+                    <tr>
+                        <td>@p.PRODID</td>
+                        <td>@p.PRODNAME</td>
+                        <td>@p.PRODPRICE</td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+        }
+    </div>
+    <script>
+        $(function () {
+            $("#div1").accordion({ collapsible: true });
+        });
+    </script>
+</body>
+</html>

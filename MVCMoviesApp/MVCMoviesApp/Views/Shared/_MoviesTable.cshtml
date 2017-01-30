@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCMoviesApp.Models.MovieModel>
+
+<table style="background-color:aliceblue; font-size:x-large; width:70%">
+    <tr>
+        <th>Movie ID</th>
+        <th>Movie Name</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.MovieID</td>
+            <td>@m.MovieName</td>
+            <td><a href="~/Movies/Edit/@m.MovieID">Edit</a>|<a href="~/Movies/@m.MovieFile" target="f1">Play</a> | <a href="~/Movies/Delete/@m.MovieID">Delete</a></td>
+        </tr>
+    }
+    @*@foreach (var movie in ViewBag.Movies)
+    {
+        <tr>
+            <td>@movie.MovieID</td>
+            <td>@movie.MovieName</td>
+            <td><a href="~/Movies/Edit/@movie.MovieID">Edit</a>|<a href="~/Movies/@movie.MovieFile" target="f1">Play</a> | <a href="~/Movies/Delete/@movie.MovieID">Delete</a></td>
+        </tr>
+    }*@
+    <tr>
+        <td colspan="3"><iframe name="f1" id="f1" height="400" width="600"></iframe></td>
+    </tr>
+</table>
+

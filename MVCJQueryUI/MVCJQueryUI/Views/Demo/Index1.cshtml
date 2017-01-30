@@ -1,0 +1,45 @@
+﻿
+@Scripts.Render("~/bundles/jquery");
+
+<link rel="stylesheet" href="~/Content/themes/base/all.css" />
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div id="div1" style="background-color:bisque; font-size:x-large; width:30%">
+
+        <h3 style="background-color:red; color:white">
+            News Info
+        </h3>
+
+        * PM Visit to UP <br />
+        * Ind VS Eng ODI Seriries <br />
+        * Sensex is volatile
+    </div>
+    <br />
+
+    DOJ: <input id="t1" title="Select Date" />
+
+    DOJ : <input type="date" id="t2" /> <!--html5 date picker-->
+
+    <script>
+        $(document).ready(function (){
+            //Thi is jquery style body on load
+
+            $("#div1").draggable();
+            $("#t1").datepicker();
+            $("t1").tooltip();
+        })
+
+    </script>
+</body>
+</html>

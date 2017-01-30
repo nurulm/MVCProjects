@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-color:lightblue">
+    <table style="width:100%">
+        <!--1st Row-->
+        <tr>
+            <td style="width:30%">
+                <img id="img1" width="70" height="70" src="~/images/1.png" class="img-circle"/>
+            </td>
+            <td style="width:70%">
+                <h2>Way 2 Success</h2>
+                <nav class="navbar-inverse">
+                    <a href="~/home/aboutus" class="btn btn-primary">About US</a>
+                    <a href="~/home/contactus" class="btn btn-primary">Contact US</a>
+                </nav>
+            </td>
+        </tr>
+        
+
+        <!--2nd Row-->
+
+        <tr>
+            <td class="btn-group-vertical" style="width:30%">
+                <a href="~/home/tutorials" class="btn btn-primary">Tutorials</a>
+                <a href="~/home/books" class="btn btn-primary">Books</a>
+            </td>
+            <td style="width:70%">
+                @RenderBody()
+            </td>
+        </tr>
+
+        <!--3rd Row-->
+        <tr class="navbar-fixed-bottom">
+            <td colspan="2">
+                <h4>Copy Right Nurul MNC</h4>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

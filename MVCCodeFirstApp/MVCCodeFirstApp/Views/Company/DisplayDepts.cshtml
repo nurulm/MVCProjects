@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MVCCodeFirstApp.Models.Department>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display Depts</title>
+</head>
+<body>
+    <table style="background-color:lightblue; font-size:x-large; border-bottom-color:red; border-bottom-style:solid; border-width:thick">
+        <tr>
+            <th>Dept No</th>
+            <th>Dept Name</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach(var d in Model)
+        {
+            <tr>
+                <td>@d.DeptID</td>
+                <td>@d.DeptName</td>
+                <td><a href="~/Company/EditDept/@d.DeptID">Edit</a></td>
+                <td><a href="~/Company/DeleteDept/@d.DeptID">Edit</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

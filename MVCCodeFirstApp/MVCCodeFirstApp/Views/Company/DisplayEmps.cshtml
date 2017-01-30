@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVCCodeFirstApp.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display Employees</title>
+</head>
+<body>
+    <table style="background-color:lightblue; font-size:x-large; border-bottom-color:red; border-bottom-style:solid; border-width:thick">
+        <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Salary</th>
+            <th>Dept ID</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.EmpID</td>
+                <td>@e.EmpName</td>
+                <td>@e.Salary</td>
+                <td>@e.DeptNo</td>
+                <td>
+                    <a href="~/Company/EditEmp/@e.EmpID">Edit</a>
+                    <a href="~/Company/DeleteEmp/@e.EmpID">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

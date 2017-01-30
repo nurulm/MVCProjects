@@ -1,0 +1,49 @@
+﻿@model MVCViewModelApp.Models.FSCollectionViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <u>Faculties Details</u>
+    <table style="background-color:aliceblue" border="1">
+        <tr>
+            <th>Faculty ID</th>
+            <th>Faculty Name</th>
+            <th>Faculty Address</th>
+        </tr>
+        @foreach (var fac in Model.Faculties)
+        {
+            <tr>
+                <td>@fac.FacultyID</td>
+                <td>@fac.FacultyName</td>
+                <td>@fac.FaculyAddress</td>
+            </tr>
+        }
+    </table>
+    <br />
+    <u>Student Details</u>
+    <table style="background-color:lightblue" border="1">
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Class</th>
+        </tr>
+        @foreach (var stu in Model.Students)
+        {
+            <tr>
+                <td>@stu.StudentID</td>
+                <td>@stu.StudentName</td>
+                <td>@stu.StudentClass</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

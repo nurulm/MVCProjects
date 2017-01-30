@@ -1,0 +1,27 @@
+﻿@model MVCCodeFirstApp.Models.Department
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Dept</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Add Department</legend>
+            Dept No: @Html.TextBoxFor(d=>d.DeptID) <br />
+
+            Dept Name : @Html.TextBoxFor(d=>d.DeptName) <br />
+
+            <input type="submit" value="Save" />
+        </fieldset>
+    }
+</body>
+</html>

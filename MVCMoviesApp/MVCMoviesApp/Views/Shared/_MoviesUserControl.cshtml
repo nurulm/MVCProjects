@@ -1,0 +1,13 @@
+﻿@model MVCMoviesApp.Models.MovieModel
+
+@using (Html.BeginForm("Add", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="background-color:lightblue; font-size:x-large; width:70%">
+        Movie ID: @Html.TextBoxFor(m => m.MovieID, new { @Value = ViewBag.MovieID }) <br />
+        Movie Name : @Html.TextBoxFor(m => m.MovieName, new { @Value = ViewBag.MovieName }) <br />
+        Movie File : <input type="file" name="fu1" /> <br />
+
+        <input type="submit" id="btnAdd" value=@TempData.Peek("Action") onclick="return Validate()" />
+    </div>
+
+}

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVCModelStoreContainer" CdmEntityContainer="MVCEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="MVCModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="MVCModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="PRODID" ColumnName="PRODID" />
+          <ScalarProperty Name="PRODNAME" ColumnName="PRODNAME" />
+          <ScalarProperty Name="PRODPRICE" ColumnName="PRODPRICE" />
+          <ScalarProperty Name="CATEID" ColumnName="CATEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ADDPRODUCT" FunctionName="MVCModel.Store.ADDPRODUCT" />
+  </EntityContainerMapping>
+</Mapping>

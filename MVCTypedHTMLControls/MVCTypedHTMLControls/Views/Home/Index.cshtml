@@ -1,0 +1,45 @@
+﻿@model MVCTypedHTMLControls.Models.JobModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .c1
+        {
+            width:100px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("Store", "Home", FormMethod.Post))
+    {
+        <fieldset style="background-color:lightblue; font-size:x-large; width:40%">
+            <legend>Job Registration</legend>
+
+                @Html.TextBoxFor(j=>j.UserName, new { @PlaceHolder="User Name"}) <br />
+
+                @Html.PasswordFor(j=>j.Password, new { @PlaceHolder = "Password"}) <br />
+
+                @Html.RadioButtonFor(j=>j.Gender,"Male") Male
+
+                @Html.RadioButtonFor(j=>j.Gender,"Female") Female <br />
+
+                @Html.DropDownListFor(j=>j.Country, ViewBag.Countries as IEnumerable<SelectListItem>,"Select Country" ) <br />
+
+                Skillset: @Html.ListBoxFor(j=>j.SkillSet, new SelectList(ViewBag.SkillSets), new { @size=2, @class="c1"}) <br />
+
+                @Html.EditorFor(j=>j.TermsAccepted) I Agree Terms And Conditions <br />
+
+                <input type="submit" value="Register" />
+        </fieldset>
+    }
+</body>
+</html>

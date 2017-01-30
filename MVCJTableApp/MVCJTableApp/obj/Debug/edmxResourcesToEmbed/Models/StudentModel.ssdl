@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudID" />
+    </Key>
+    <Property Name="StudID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StudName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudGener" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudCity" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="MVCModelStoreContainer">
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

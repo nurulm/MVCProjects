@@ -1,0 +1,83 @@
+﻿@model MVCADONETSample1.Models.CustomerModel
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        span {
+            color:red;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("DoSearchAdd", "Demo", FormMethod.Post))
+    {
+        <div class="container">
+            @*1st Row*@
+            <div class="row">
+                <div class="col-lg-4">
+                   @Html.LabelFor(c=>c.AcctNo)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(c=>c.AcctNo, new { @Value = ViewBag.AcctNo})
+                </div>
+
+                <div class="col-lg-4">
+                    &nbsp;
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="submit" value="Search" name="command" />
+                </div>
+            </div>
+
+            @*2nd Row*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(c => c.AcctHolderName)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(c => c.AcctHolderName, new { @Value = ViewBag.AcctHolderName })
+                </div>
+
+                <div class="col-lg-4">
+                    
+                </div>
+            </div> 
+
+            @*3rd Row*@
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(c => c.AcctBalance)
+                </div>
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(c => c.AcctBalance, new { @Value = ViewBag.AcctBalance })
+                </div>
+
+                <div class="col-lg-4">
+                   
+                </div>
+            </div> 
+
+            @*4th Row*@
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="submit" value="Save" name="command" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

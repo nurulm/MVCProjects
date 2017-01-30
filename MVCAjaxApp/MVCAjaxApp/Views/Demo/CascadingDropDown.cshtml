@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>CascadingDropDown</title>
+</head>
+<body>
+    @Html.DropDownList("CatItems")
+    <br />
+    <br />
+
+    <select id="listProducts"></select>
+
+    <script>
+
+        $(function () {
+            $("#CatItems").change(f1);
+        });
+
+        function f1() {
+          //  window.alert($("#CatItems").val());
+
+            $.ajax({
+                url: "/demo/GetProducts",
+                type: "post",
+                data: { "cid": $("#CatItems").val() },
+                cache: false,
+                success: getProdResult
+
+            }); //Clsing Ajax call
+        };//closing f1
+
+        function getProdResult(r)
+        {
+            $("#listProducts").empty(); //Emptying list box
+
+            $("#listProducts").append(new Option("--Select Product--"));
+
+            $.each(r, function (i, p) {
+                $("#listProducts").append(new Option(p.PRODNAME, p.PRODID));
+
+            });
+
+        }
+    </script>
+
+</body>
+</html>

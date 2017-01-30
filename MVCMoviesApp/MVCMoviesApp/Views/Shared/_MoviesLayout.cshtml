@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVCMoviesApp.Models.MovieModel>
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-color :lightblue">
+    <table style="width:100%">
+        <tr>
+            <td style="width:30%">
+                <img id="img1" height="70" width="70" src="~/Images/Home.png" class="img-circle" />  @*Top Left Image*@
+            </td>
+            <td style="width:70%">
+                <nav class="navbar-inverse">
+        @foreach (var m in Model)
+        {
+            @m.MovieName <br />
+         }
+                </nav>
+            </td>
+        </tr>
+        <tr>
+            <td class="btn-group-vertical" style="width:30%">
+                
+                <a href="~/Movies/AddMovie">Add Movie</a> <br />
+                <a href="~/Movies/Display">Display</a>
+            </td>
+            <td style="width:70%">
+                @RenderBody();
+            </td>
+        </tr>
+        <tr class="navbar-fixed-bottom">
+            <td colspan="2" width="100%" align="center">
+                <center><h4>Copy Rights Movies</h4></center>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

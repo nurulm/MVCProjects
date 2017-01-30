@@ -1,0 +1,28 @@
+﻿@model MVCStrongViewApp.Models.StudentModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table style="background-color:lightblue" border="1">
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th> Student Photo</th>
+        </tr>
+        <tr>
+            <td>@Model.StudID</td>
+            <td>@Model.StudName</td>
+            <td><img src="~/images/@Model.StudPhoto" height="70" width="70" /></td>
+        </tr>
+    </table>
+</body>
+</html>

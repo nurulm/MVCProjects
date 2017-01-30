@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
+    <link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="div1"> 
+    </div>
+
+    <script>
+        $("#div1").jtable({
+            title: "Students Info",
+            sorting: true,
+            defaultSorting: "StudID ASC",
+            paging: true,
+            pageSize: 2,
+            actions: {
+                listAction: "/Demo/GetStudents",
+                createAction: "/Demo/AddStudent",
+                deleteAction: "/Demo/DeleteStudent",
+                updateAction: "/Demo/UpdateStudent"
+            },
+            fields: {
+                StudID: {
+                    title: "Student ID",
+                    key: true,
+                    list: true,
+                    edit: true,
+                    create: true
+                },
+                StudName: {
+                    title: "Name",
+                    display:function(data){
+                        return "<b>" + data.record.StudName + "</b>";
+                    }
+                },
+                StudGener: {
+                    title: "Gender",
+                    type: "radiobutton",
+                    options: { "Male": "Male", "Female": "Female" },
+                    edit: true //modifying records will not show gender radio button
+                },
+                StudAddress :{
+                    title: "Address",
+                    type:"textarea"
+                },
+                StudCity: {
+                    title: "City",
+                    options: { "--Select--": "--Select--", "Hyd": "Hyderabad", "Bang": "Bangalore", "Noida": "Noida" }
+                }
+            } //Closing Fields
+
+        }); //Closing J Table
+
+        $("#div1").jtable("load"); //This will call list action to get records from db to display
+    </script>
+</body>
+</html>

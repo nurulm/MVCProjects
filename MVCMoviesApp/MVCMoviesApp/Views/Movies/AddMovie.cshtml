@@ -1,0 +1,69 @@
+﻿@*@model MVCMoviesApp.Models.MovieModel*@
+
+@Scripts.Render("~/bundles/jquery")
+
+@{
+    ViewBag.Title = "Movies Management";
+    Layout = "~/Views/Shared/_MoviesLayout.cshtml";
+}
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddMovie</title>
+</head>
+<body>*@
+    <div>
+        @{ 
+            Html.RenderPartial("Header");
+          }
+    </div>
+
+    <br />
+
+    @*Movies User Control for add and edit operations*@
+    @{ 
+        Html.RenderPartial("_MoviesUserControl", new MVCMoviesApp.Models.MovieModel());
+    }
+    @*@using (Html.BeginForm("Add", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div style="background-color:lightblue; font-size:x-large; width:40%">
+            Movie ID: @Html.TextBoxFor(m=>m.MovieID, new { @Value = ViewBag.MovieID }) <br />
+            Movie Name : @Html.TextBoxFor(m=>m.MovieName, new { @Value = ViewBag.MovieName }) <br />
+            Movie File : <input type="file" name="fu1"  /> <br />
+
+            <input type="submit" id="btnAdd" value=@TempData.Peek("Action") onclick="return Validate()"/>
+        </div>
+
+    }*@
+
+    @*Movies Table with edit, delete and play actions*@
+    @{ 
+        Html.RenderPartial("_MoviesTable");
+    }
+    <script>
+
+        function Validate() {
+            if ($("#MovieID").val() == "") {
+                alert("Enter Movie ID");
+                return false;
+            }
+
+            if ($("#MovieName").val() == "") {
+                alert("Enter Movie Name");
+                return false;
+            }
+
+            $('input[name^="fu1"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    accept: "image/jpeg, image/pjpeg"
+                })
+            })
+        }
+
+    </script>
+@*</body>
+</html>'*@

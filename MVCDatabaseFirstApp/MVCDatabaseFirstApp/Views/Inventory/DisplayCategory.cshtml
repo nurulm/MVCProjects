@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MVCDatabaseFirstApp.Models.Category>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CateName)
+        </td>
+        <td>
+            <a href="#" onclick="EditCategory(@item.CateID)">Edit</a>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            <a href="~/Inventory/DeleteCategory/@item.CateID" onclick="return confirm('Are you sure to delete')">Delete</a> 
+        </td>
+    </tr>
+}
+
+</table>

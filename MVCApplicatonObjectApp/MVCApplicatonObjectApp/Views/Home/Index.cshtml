@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Comments</title>
+</head>
+<body>
+    <div style="background-color:lightblue; font-size:x-large; width:40%">
+        <form id="frmComments" method="post" action="~/Home/Store">
+
+            <textarea name="txtComment" rows="5" cols="20"></textarea><br />
+
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+    <h2>Reader Comments</h2>
+    <div style="font-size:x-large">
+        @Html.Raw(HttpContext.Current.Application["Comments"].ToString())
+    </div>
+</body>
+</html>

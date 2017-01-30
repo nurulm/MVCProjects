@@ -1,0 +1,51 @@
+﻿@Scripts.Render("~/bundles/jquery")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EventDemo</title>
+</head>
+<body>
+    <div> 
+        Publisher: @Html.DropDownList("d1", new SelectList(ViewBag.Publisher), "Select Publisher")
+
+        Book: <select id="s1"></select>
+    </div>
+
+    <script>
+
+        $(function () {
+            $("#d1").change(f1);
+
+        });
+
+        function f1()
+        {
+            alert($("#d1").val());
+
+            var sel = $("#d1").val();
+
+            $("#s1").empty();
+            $("#s1").append(new Option("-Select-"));
+
+
+            if (sel == "Microsoft")
+            {
+                $("#s1").append(new Option("ASP.NEt"));
+                $("#s1").append(new Option("C#"));
+            }
+            else if (sel == "WROX") {
+                $("#s1").append(new Option("MVC"));
+                $("#s1").append(new Option("WCF"));
+            }
+
+        };
+    </script>
+</body>
+</html>

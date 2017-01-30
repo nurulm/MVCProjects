@@ -1,0 +1,47 @@
+﻿@Scripts.Render("~/bundles/jquery")
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body onload="f1()">
+    <input type="button" id="b1" value="click me" onclick="f2()" />
+
+    <span id="s1" style="background-color:bisque; font-size:x-large"></span>
+
+    <h2 style="background-color:black; color:white; width:25%" onclick="f3()">
+        New Tutorial
+    </h2>
+
+    <div id="div1" style="background-color:lightblue; font-size:x-large; width:25%">
+        - MVC <br />
+        - Angular JS2 <br />
+        - WCF 
+    </div>
+<script>
+    function f1()   //Body Onload function
+    {
+        $("#div1").hide;
+    }
+
+    function f2()
+    {
+        $("#s1").html("button clicked"); //writing content to span tag
+        $("#b1").fadeOut(10000); //hiding button with in 10 sec
+    }
+
+    function f3()
+    {
+        $("#div1").toggle(10000); //showing and hiding div1
+    }
+</script>
+</body>
+</html>

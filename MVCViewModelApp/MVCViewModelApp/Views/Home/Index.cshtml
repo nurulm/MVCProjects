@@ -1,0 +1,25 @@
+﻿@model MVCViewModelApp.Models.FSViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <u>Faculty Info</u><br />
+    Faculty ID : @Model.FacultyInfo.FacultyID <br />
+    Faculty Name : @Model.FacultyInfo.FacultyName <br />
+    Faculty Address : @Model.FacultyInfo.FaculyAddress <br />
+    <hr />
+    <u>Student Info</u> <br />
+    Student ID: @Model.StudentInfo.StudentID <br />
+    Student Name: @Model.StudentInfo.StudentName <br />
+    Student Address : @Model.StudentInfo.StudentClass <br />
+</body>
+</html>

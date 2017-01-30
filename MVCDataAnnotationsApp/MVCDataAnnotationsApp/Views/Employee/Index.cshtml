@@ -1,0 +1,31 @@
+﻿@model MVCDataAnnotationsApp.Models.Employee
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+ 
+
+    @using (Html.BeginForm("Store", "Employee", FormMethod.Post))
+    {
+        @Html.LabelFor(j => j.EmployeeID)  
+        @Html.TextBoxFor(j => j.EmployeeID) <br /> <br />
+        @Html.ValidationMessageFor(j=>j.EmployeeID) <br />
+        @Html.LabelFor(j => j.EmployeeName)  
+        @Html.TextBoxFor(j => j.EmployeeName) <br />
+        @Html.ValidationMessageFor(j=>j.EmployeeName)
+
+        <input type="submit" value="Submit" />
+    }
+</body>
+</html>
