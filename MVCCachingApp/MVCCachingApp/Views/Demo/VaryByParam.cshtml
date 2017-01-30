@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>VaryByParam</title>
+</head>
+<body>
+    @Html.DropDownList("cinfo")
+    <br />
+
+    <div id="div1" style="background-color:lightblue; font-size:x-large"></div>
+
+    <script>
+        $(function () {
+            $("#cinfo").change(LoadProducts);
+        })
+
+        function LoadProducts()
+        {
+            $.ajax({
+                url: "/demo/getProducts",
+                type: "post",
+                data: { "cid": $("#cinfo").val() },
+                success: function (res) {
+                    //param res recieves partial view content with prods info from getproducts action
+                    $("#div1").html(res);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

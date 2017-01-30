@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MVCCachingApp.Models.PRODUCT>
+
+<h3>@ViewBag.cateid Prods info output at time @DateTime.Now.ToLongTimeString()</h3>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODPRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODPRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
