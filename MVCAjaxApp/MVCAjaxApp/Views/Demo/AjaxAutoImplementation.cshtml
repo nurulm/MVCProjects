@@ -59,9 +59,7 @@
 
         function getProductsResult(r)
         {//Parameter r recieves prods info starting with char[s] typed with in textbox. this information comes from controller action GetProductsList
-
-            $("#tblProduts tr:gt(0)").remove(); //Removing table rows whose index is greater than 0. index 0 will have the col headings
-
+          $("#tblProdutss tr:gt(0)").remove(); //Removing table rows whose index is greater than 0. index 0 will have the col headings
             $.each(r, function (i, p) {
                 $("#tblProducts").append("<TR><TD>" + p.PRODID +"</TD><TD>" + p.PRODNAME + "</TD><TD><A HREF=/Demo/GetProduct/" + p.PRODID + " target=_blank>more</A></TD></TR>")
                 });
