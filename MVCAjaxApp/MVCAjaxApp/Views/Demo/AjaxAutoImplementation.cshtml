@@ -20,7 +20,7 @@
 
     <h3>Products Info</h3>
 
-    <table id="tblProducts" border="1" style="font-size:x-large">
+    <table id="tblProducts"  border="1" style="font-size:x-large">
         <tr>
             <th>Product ID</th>
             <th>Product Name</th>
@@ -59,8 +59,10 @@
 
         function getProductsResult(r)
         {//Parameter r recieves prods info starting with char[s] typed with in textbox. this information comes from controller action GetProductsList
-          $("#tblProdutss tr:gt(0)").remove(); //Removing table rows whose index is greater than 0. index 0 will have the col headings
-            $.each(r, function (i, p) {
+         //$("#tblProduts tr:gt(0)").remove(); 
+         $("tr:gt(0)").remove(); //Removing table rows whose index is greater than 0. index 0 will have the col headings
+       
+          $.each(r, function (i, p) {
                 $("#tblProducts").append("<TR><TD>" + p.PRODID +"</TD><TD>" + p.PRODNAME + "</TD><TD><A HREF=/Demo/GetProduct/" + p.PRODID + " target=_blank>more</A></TD></TR>")
                 });
         }
