@@ -3,7 +3,7 @@
         <label class="control-label col-xs-2">First Name</label>
         <div class="col-xs-10">
             <input type="text"
-                   ng-model="rc.user.firstName"
+                   ng-model="rc.user.firstName" cm-text-only
                    class="form-control"  placeholder="First Name">
         </div>
     </div>
@@ -23,13 +23,14 @@
                    class="form-control"  placeholder="email ID">
         </div>
     </div>
-      <div class="form-group">
-        <label  class="control-label col-xs-2">Country</label>
+    <div class="form-group">
+        <label class="control-label col-xs-2">Phone Number</label>
         <div class="col-xs-10">
-            <select class="form-control" ng-model="rc.selectedCountry"
-                    ng-options="country.code +'-'+country.name for country in rc.countries">
-                <option value="">Please Select</option>
-            </select>{{rc.selectedCountry}}
+            <input type="text"
+                   cm-numbers-only
+                   maxnumbers="10"
+                   ng-model="rc.user.phone"
+                   class="form-control"  placeholder="Phone Number">
         </div>
     </div>
     <div class="form-group">
@@ -45,6 +46,31 @@
         <label  class="control-label col-xs-2">Password</label>
         <div class="col-xs-10">
             <input type="password" class="form-control"  placeholder="Password" ng-model="rc.user.password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="control-label col-xs-2">Confirm Password</label>
+        <div class="col-xs-10">
+            <input type="password" class="form-control"  placeholder="Confirm Password" ng-model="rc.user.confirmpassword">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="control-label col-xs-2">Country</label>
+        <div class="col-xs-10">
+            <select class="form-control" ng-model="rc.selectedCountry"
+                    ng-options="country.code +'-'+country.name for country in rc.countries">
+                <option value="">Please Select</option>
+            </select>{{rc.selectedCountry}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-2">Pincode</label>
+        <div class="col-xs-10">
+            <input type="text"
+                   cm-numbers-only
+                   maxnumbers="6"
+                   ng-model="rc.user.pincode"
+                   class="form-control"  placeholder="Pincode">
         </div>
     </div>
     <div class="form-group">
