@@ -61,3 +61,6 @@ D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\bin\Antlr3.Runtime.pd
 D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\obj\Debug\MVCWebAPIServerApp.csprojResolveAssemblyReference.cache
 D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\obj\Debug\MVCWebAPIServerApp.dll
 D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\obj\Debug\MVCWebAPIServerApp.pdb
+D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\bin\System.Web.Cors.dll
+D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\bin\System.Web.Http.Cors.dll
+D:\MVCGit\MyProjects\MVCWebAPIServerApp\MVCWebAPIServerApp\bin\System.Web.Http.Cors.xml

@@ -9,6 +9,8 @@ namespace MVCWebAPIServerApp
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
             // Web API configuration and services
 
             // Web API routes

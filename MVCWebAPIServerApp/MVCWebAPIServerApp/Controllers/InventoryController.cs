@@ -5,9 +5,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using MVCWebAPIServerApp.Models;
+using System.Web.Http.Cors;
 
 namespace MVCWebAPIServerApp.Controllers
 {
+    [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class InventoryController : ApiController
     {
         MVCEntities obj = new MVCEntities();
@@ -41,17 +43,28 @@ namespace MVCWebAPIServerApp.Controllers
 
         }
 
-        public void deleteProduct(string id)
+       
+        public string deleteProduct(string id)
         {
-            var p = obj.PRODUCTs.Find(id);
+            try
+            {
+                var p = obj.PRODUCTs.Find(id);
 
-            obj.PRODUCTs.Remove(p);
+                obj.PRODUCTs.Remove(p);
 
-            obj.SaveChanges();
+                obj.SaveChanges();
+
+                return "Record Deleted";
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
            
         }
 
-        public void putProduct(PRODUCT p)
+        [HttpPut]
+        public void updateProduct(PRODUCT p)
         {
             var pp = obj.PRODUCTs.Find(p.PRODID);
 
