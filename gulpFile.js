@@ -8,7 +8,7 @@ var minifyimage = require('gulp-imagemin');
 //contactinating all js files - bundling
 gulp.task('BundleJavaScript',function(){
 
-     return gulp.src(["./bower_components/angular/angular.js", "./jquery/dist/jquery.js", "./underscore/underscore.js","./bootstrap/dist/js/bootstrap.js" ])
+     return gulp.src(["./bower_components/angular/angular.js", "./bower_components/jquery/dist/jquery.js", "./bower_components/underscore/underscore.js","./bower_components/bootstrap/dist/js/bootstrap.js","./bower_components/jquery-ui/jquery-ui.js/"])
      .pipe(concat('all.js'))
      .pipe(iife())
      .pipe(uglify())
