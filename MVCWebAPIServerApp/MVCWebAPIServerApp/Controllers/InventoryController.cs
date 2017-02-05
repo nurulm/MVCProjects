@@ -16,7 +16,12 @@ namespace MVCWebAPIServerApp.Controllers
 
         public List<PRODUCT> getProducts()
         {
-            return obj.PRODUCTs.ToList();
+            string token = System.Web.HttpContext.Current.Request.Headers.Get("myToken");
+
+          if (token == "xyz123")
+                return obj.PRODUCTs.ToList();
+           else
+                return null;
         }
 
         public PRODUCT getProduct(string id)
@@ -38,7 +43,7 @@ namespace MVCWebAPIServerApp.Controllers
             }
             catch(Exception ex)
             {
-                return ex.Message;
+                return "duplicate";
             }
 
         }

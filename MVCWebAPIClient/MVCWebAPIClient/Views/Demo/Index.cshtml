@@ -47,7 +47,7 @@
         {
             $("#txtProductID").val("");
             $("#txtProductName").val("");
-            $("txtProductPrice").val("");
+            $("#txtProductPrice").val("");
             $("#txtCateID").val("");
         }
 
@@ -56,6 +56,7 @@
             $.ajax({
                 url: "http://localhost:81/api/Inventory",
                 type: "get",
+                headers: {"myToken":"xyz123"},
                 cache: false,
                 success: function (r) {
                     $.each(r, function (i, p) {
@@ -97,7 +98,7 @@
         function saveProduct()
         {
             $.ajax({
-                url: "http://localhost:81/api/Inventory/postProduct",
+                url: "http://localhost:81/api/Inventory",
                 type: "post",
                 data: {
                     "PRODID":$("#txtProductID").val(),
@@ -153,7 +154,7 @@
         function updateProduct()
         {
             $.ajax({
-                url: "http://localhost:81/api/Inventory/updateProduct",
+                url: "http://localhost:81/api/Inventory",
                 type: "put",
                 data:$("#frmProducts").serialize(),// {
                 //    "PRODID": $("#txtProductID").val(),
@@ -166,6 +167,7 @@
                     (function () {
                         if($(this).text()==$("#txtProductID").val())
                         {
+                            $(this).parent("tr").find("td:nth-child(2)").html($("#txtProductName").val());
                             $(this).parent("tr").find("td:nth-child(3)").html($("#txtProductPrice").val());
                         }
                     });

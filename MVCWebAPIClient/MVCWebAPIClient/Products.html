@@ -1,148 +1,27 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <script src="Scripts/jquery-3.1.1.min.js"></script>
-    <script src="Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/app/ProductsCtrl.js"></script>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>AngularView</title>
 </head>
-<body onload="loadProducts()">
-    <form id="frmProducts">
-        <div style="background-color:lightblue; font:large; width:40%">
-            Product ID: <input id="txtProductID" name="txtProductID" />
-            <input type="button" id="btnGetDetails" value="Search" onclick="getProductDetails()" />
-            <br />
-            Product Name: <input id="txtProductName" name="txtProductName" />
-            <br />
-            Product Price: <input id="txtProductPrice" name="txtProductPrice" />
-            <br />
-            Category ID : <input id="txtCateID" name="txtCateID" />
-            <br />
-            <input type="button" id="btnSaveProduct" value="Save" onclick="saveProduct()" />
-            <input type="button" id="btnDeleteProduct" value="Delete" onclick="deleteProduct()" />
-            <input type="button" id="btnUpdateProduct" value="Update" onclick="updateProduct()" />
-        </div>
-    </form>
-    <h2>Products Information</h2>
-    <table id="tblProducts" border="1" style="font-size:large">
-        <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Price</th>
-        </tr>
-    </table>
-
-    <script>
-        function clearFields()
-        {
-            $("#txtProductID").val("");
-            $("#txtProductName").val("");
-            $("txtProductPrice").val("");
-            $("#txtCateID").val("");
-        }
-
-        function loadProducts() //Calls getProduct WebAPI Method
-        {
-            $.ajax({
-                url: "http://localhost:81/api/Inventory",
-                type: "get",
-                cache: false,
-                success: function (r) {
-                    $.each(r, function (i, p) {
-                        $("#tblProducts").append("<tr><td>" +
-                            p.PRODID + "</td><td>" +
-                            p.PRODNAME + "</td><td>" +
-                            p.PRODPRICE + "</td></tr>")
-                    })
-                },
-                error: function () {
-                    window.alert('Server Error');
-                }
-            });
-        } //close loadProducts()
-
-
-        function getProductDetails()
-        {
-            $.ajax({
-                url: "http://localhost:81/api/Inventory/getProduct",
-                type: "get",
-                data:{"id":$("#txtProductID").val()},
-                cache: false,
-                success: function (r) {
-                    if (r == null) {
-                        window.alert('No Record Found');
-                        $("#txtProductID").focus();
-                    }
-                    else
-                    {
-                        $("#txtProductName").val(r.PRODNAME);
-                        $("#txtProductPrice").val(r.PRODPRICE);
-                        $("#txtCateID").val(r.CATEID);
-                    }
-                }
-            });
-        }
-
-        function saveProduct()
-        {
-            $.ajax({
-                url: "http://localhost:81/api/Inventory/postProduct",
-                type: "post",
-                data: {
-                    "PRODID":$("#txtProductID").val(),
-                    "PRODNAME":$("#txtProductName").val(),
-                    "PRODPRICE":$("#txtProductPrice").val(),
-                    "CATEID":$("#txtCateID").val()
-                },
-                success: function (r) {
-                    if(r=="duplicate")
-                    {
-                        window.alert('Duplicate Product ID');
-                        $("#txtProductID").focus();
-                    }
-                    else
-                    {
-                        $("#tblProducts").append("<tr><td>" +
-                            $("#txtProductID").val() + "</td><td>" +
-                            $("#txtProductName").val() + "</td><td>" +
-                            $("#txtProductPrice").val() + "</td></tr>"
-                            );
-                        clearFields();
-                        window.alert('Product Info Saved');
-                    }
-                }
-            })
-        }
-
-        function deleteProduct()
-        {
-            var b = window.confirm('Do you want to delete the record?');
-
-            if (b == true) {
-
-                $.ajax({
-                    url: "http://localhost:81/api/Inventory/deleteProduct/",
-                    type: "delete",
-                    data:{"id":$("#txtProductID").val()},
-                    success: function (r) {
-                        $("#tblProducts td:nth-child(1)").each
-                            (function () {
-                                if ($(this.Text() == $("#txtProductID").val())) {
-                                    $(this).parent("tr").remove();
-                                }
-                            });
-                        clearFields();
-                        window.alert('Record Deleted');
-                    },
-                    error: function (r)
-                    {
-                        window.alert('server error' + r.Text());
-                    }
-                })
-            }
-        }
-    </script>
+<body>
+    <div ng-app="ProductsModule" ng-controller="PorductsCtrl as pc">
+        <input type="submit" value="Save" ng-click="getData()" />
+        <table border="1">
+            <tr>
+                <th>Employee No</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            <tr ng-repeat="prd in pc.products">
+                <td>{{prd.PRODID}}</td>
+                <td>{{prd.PRODNAME}}</td>
+                <td>{{prd.PRODPRICE}}</td>
+            </tr>
+        </table>
+    </div>
+   
 </body>
 </html>

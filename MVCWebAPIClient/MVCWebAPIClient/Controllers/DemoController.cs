@@ -13,5 +13,10 @@ namespace MVCWebAPIClient.Controllers
         {
             return View();
         }
+
+        public ActionResult AngularView()
+        {
+            return View();
+        }
     }
 }
