@@ -1,0 +1,33 @@
+﻿@model MVCFormsAuthApp.Models.user
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div style="background-color:lightgreen; font-size:x-large;width:50%">
+                User Name : @Html.TextBoxFor(u=>u.username) <br />
+                Password : @Html.PasswordFor(u=>u.password)<br />
+                <input type="submit" value="Login" class="btn btn-primary" />
+                <br />
+                <input type="checkbox" name="c1" />Remember Me <br />
+                New User? <a href="~/Home/Register">Sign Up</a>
+            </div>
+        }
+    </div>
+    <div style="background-color:lightpink;font-size:large; width:60%; border-color:black;border-style:solid;color:red">
+        @ViewBag.Message
+    </div>
+</body>
+</html>

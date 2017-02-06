@@ -9,6 +9,9 @@
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/app/Products.js"></script>
     <script src="~/Scripts/app/ProductsCtrl.js"></script>
+
+    <script src="~/Scripts/app/common.js"></script>
+    <script src="~/Scripts/app/commontblproducts.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>AngularView</title>
 </head>
@@ -16,24 +19,25 @@
     <form>
         <div>
             <div style="background-color:lightblue; font:large; width:40%">
-                Product ID: <input type="text" ng-model="pc.products.PRODID" />
-                <input type="button" value="Search" ng-click="getProductDetails()" />
+                Product ID: <input type="text" ng-model="pc.product.PRODID" />
+                <input type="button" value="Search" ng-click="pc.getProductDetails()" />
                 <br />
-
-                Product Name: <input type="text" ng-model="pc.products.PRODNAME" />
+                Product Name: <input type="text" ng-model="pc.product.PRODNAME" />
                 <br />
-                Product Price: <input type="text" ng-model="pc.products.PRODPRICE" />
+                Product Price: <input type="text" ng-model="pc.product.PRODPRICE" />
                 <br />
-                Category ID : <input type="tel" ng-model="pc.products.CATEID" />
+                Category ID : <input type="tel" ng-model="pc.product.CATEID" />
                 <br />
 
                 <input type="button" value="Save" ng-click="pc.saveProduct()" />
                 <input type="button" value="Delete" ng-click="pc.deleteProduct()" />
                 <input type="button" value="Update" ng-click="pc.updateProduct()" />
+                <input type="button" value="Load" ng-click="pc.getData()" />
             </div>
         </div>
+        <tbl-products-table></tbl-products-table>
 
-        <table border="1">
+        @*<table border="1">
             <tr>
                 <th>Product ID</th>
                 <th>Product Name</th>
@@ -44,8 +48,9 @@
                 <td>{{prd.PRODNAME}}</td>
                 <td>{{prd.PRODPRICE}}</td>
             </tr>
-        </table>
+        </table>*@
     </form>  
   {{pc.message}}
+   
 </body>
 </html>

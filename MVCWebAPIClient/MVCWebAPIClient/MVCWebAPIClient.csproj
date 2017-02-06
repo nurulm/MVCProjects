@@ -164,6 +164,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\app\common.js" />
+    <Content Include="Scripts\app\commontblproducts.js" />
     <Content Include="Scripts\app\Products.js" />
     <Content Include="Scripts\app\ProductsCtrl.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -212,6 +214,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\commonhtml\tblProducts.tpl.html" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />

@@ -1,0 +1,20 @@
+﻿@model MVCFiltersApp.Models.BlogReader
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Store</title>
+</head>
+<body>
+    <div> 
+        Name: @Model.Name <br />
+        Comment: @Html.Raw(Model.Comments)
+    </div>
+</body>
+</html>

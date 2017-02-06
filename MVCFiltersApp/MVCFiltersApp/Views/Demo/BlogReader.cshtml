@@ -1,0 +1,28 @@
+﻿@model MVCFiltersApp.Models.BlogReader
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BlogReader</title>
+</head>
+<body>
+    <h2>Display AngularJs Info</h2> <br />
+
+    @using (Html.BeginForm("Store", "Demo", FormMethod.Post))
+    {
+        <div style="background-color:lightgray; font-size:large; width:40%">
+            Name : @Html.TextBoxFor(b=>b.Name) <br />
+
+            Comments: @Html.TextAreaFor(b=>b.Comments) <br />
+
+            <input type="submit" value="submit" />
+        </div>
+    }
+</body>
+</html>
