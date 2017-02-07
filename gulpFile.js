@@ -10,7 +10,7 @@ gulp.task('BundleJavaScript',function(){
 
      //return gulp.src(["./bower_components/angular/angular.js", "./bower_components/jquery/dist/jquery.js", "./bower_components/underscore/underscore.js","./bower_components/bootstrap/dist/js/bootstrap.js","./bower_components/jquery-ui/jquery-ui.js/"])
      return gulp.src(["./bower_components/jquery/dist/jquery.js","./bower_components/bootstrap/dist/js/bootstrap.js",
-               "./bower_components/angular/angular.js","./bower_components/jquery-ui/jquery-ui.js/","./bower_components/underscore/underscore-min.js"])
+               "./bower_components/angular/angular.js","./bower_components/jquery-ui/jquery-ui.js/"]) //,"./bower_components/underscore/underscore.js"])
      .pipe(concat('all.js'))
      .pipe(iife())
      .pipe(uglify())
