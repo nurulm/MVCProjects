@@ -1,0 +1,22 @@
+﻿@model mvcdiappnew.Models.empmodel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addemployee</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div>
+            empno:@Html.TextBoxFor(e=>e.empno) <br />
+            ename:@Html.TextBoxFor(e=>e.ename) <br /> 
+            <input type="submit" value="submit" />
+        </div>
+    }
+    
+</body>
+</html>
