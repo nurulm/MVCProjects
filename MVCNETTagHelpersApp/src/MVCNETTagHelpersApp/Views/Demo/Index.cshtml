@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <form asp-controller="Demo" asp-action="Store" method="post">
+        <div style="background-color:lightblue; font-size:x-large; width:50%">
+            <input type="text" asp-for="UserName" placeholder="User Name" /><br />
+            <span asp-validation-for="UserName"></span>
+            <br />
+            <input type="password" asp-for="Password" placeholder="Password" />
+            <br />
+            <input type="text" asp-for="Age" placeholder="Age" />
+            <span asp-validation-for="Age"></span>
+            <br />
+            Skillset: <select asp-for="SkillSet" asp-items="@ViewBag.SkillSets" multiple size="2" style="width:120px"></select>
+            <br />
+            Country: <select asp-for="Country" asp-items="ViewBag.Countries as SelectList"></select>
+            <br />
+            <input type="checkbox" asp-for="TermsAccepted" /> I Agree Terms
+            <br />
+            <input type="submit" value="Register" />
+        </div>
+        <div style="background-color:lightgray; font-size:x-large; color:red; border:3px solid" asp-validation-summary="ValidationSummary-All"></div>
+
+    </form>
+</body>
+</html>
