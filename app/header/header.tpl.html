@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default" ng-controller="headerCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <cm-brand-name></cm-brand-name>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+              
+                
+                  <li><a ui-sref="register">{{'REGISTER'|translate}}</a></li>
+                <li><a ui-sref="login">{{'LOGIN'|translate}}</a></li>
+                <li><a ui-sref="products">{{'PRODUCTS'|translate}}</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                 <li><a href="#" ng-click="changeLagunage('en')">English</a></li>
+                <li><a href="#"  ng-click="changeLagunage('de')">Deutsch</a></li>
+                 <li><a href="#">{{cartProducts.length}}</a></li>
+            </ul>
+
+           
+        </div>
+    </div>
+</nav>
